@@ -386,7 +386,12 @@ class EncoderModelHF(nn.Module):
         self.num_features = 1024
         self.model = timm.create_model("hf-hub:MahmoodLab/uni", pretrained=True, 
                                   init_values=1e-5, dynamic_img_size=True)
-        self.model.train()
+        self.model.eval()
+
+        # Freeze the UNI model
+        for param in self.model.parameters():
+            param.requires_grad = False
+
         self.adapter = nn.Sequential(
             nn.LayerNorm(self.num_features),
             nn.Linear(self.num_features, self.num_features),
@@ -402,7 +407,8 @@ class EncoderModelHF(nn.Module):
         :param timesteps: a 1-D batch of timesteps.
         :return: an [N x K] Tensor of outputs.
         """
-        h = self.model(x)
+        with th.no_grad():
+            h = self.model(x)
         batch_size, num_features = h.shape
         h = h.view(batch_size, num_features)
         h = self.adapter(h)
