@@ -5,9 +5,7 @@ https://github.com/hojonathanho/diffusion/blob/1e0dceb3b3495bbe19116a5e1b3596cd0
 Docstrings have been added, as well as DDIM sampling and a new collection of beta schedules.
 """
 
-from model.unet_autoenc import AutoencReturn
 from config_base import BaseConfig
-import enum
 import math
 
 import numpy as np
@@ -17,7 +15,6 @@ from model.nn import mean_flat
 from typing import NamedTuple, Tuple
 from choices import *
 from torch.cuda.amp import autocast
-import torch.nn.functional as F
 
 from dataclasses import dataclass
 
