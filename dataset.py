@@ -724,7 +724,6 @@ class hest_lmdb(Dataset):
                 **kwargs):
         self.lmdb_path = lmdb_path
         self.df = pd.read_csv(csv_path)
-        self.length = len(self.data)
         transform = [transforms.Resize(image_size)]
         if do_augment:
             transform.append(transforms.RandomHorizontalFlip())
@@ -760,5 +759,5 @@ class hest_lmdb(Dataset):
             image = image.convert("RGB")
         
         if self.transform is not None:
-            img = self.transform(img)
-        return {'img': img, 'index': index}
+            image = self.transform(image)
+        return {'img': image, 'index': index}

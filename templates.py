@@ -215,7 +215,7 @@ def padchest256_autoenc():
 def hest256_autoenc():
     conf = ffhq128_autoenc_base()
     conf.data_name = 'hest'
-    conf.scale_up_gpus(3)
+    conf.scale_up_gpus(1)
     conf.num_workers = 8
     conf.img_size = 256
     conf.net_ch = 128
@@ -224,7 +224,7 @@ def hest256_autoenc():
     conf.eval_every_samples = 100_000_000
     conf.eval_ema_every_samples = 100_000_000
     conf.total_samples = 20_000_000
-    conf.batch_size = 16
+    conf.batch_size = 8
     conf.make_model_conf()
     conf.name = 'hest256_autoenc'
     return conf

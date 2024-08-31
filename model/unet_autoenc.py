@@ -52,7 +52,7 @@ class BeatGANsAutoencModel(BeatGANsUNetModel):
             resblock_updown=conf.resblock_updown,
             use_new_attention_order=conf.use_new_attention_order,
             pool=conf.enc_pool,
-            # use_hf=True,
+            use_hf=True,
         ).make_model()
 
         if conf.latent_net_conf is not None:

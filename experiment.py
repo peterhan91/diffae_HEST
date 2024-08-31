@@ -452,7 +452,8 @@ class LitModel(pl.LightningModule):
             model.eval()
             with torch.no_grad():
                 all_x_T = self.split_tensor(self.x_T)
-                batch_size = min(len(all_x_T), self.conf.batch_size_eval)
+                # batch_size = min(len(all_x_T), self.conf.batch_size_eval)
+                batch_size = min(len(all_x_T), self.conf.batch_size_eval, len(x_start))
                 # allow for superlarge models
                 loader = DataLoader(all_x_T, batch_size=batch_size)
 
