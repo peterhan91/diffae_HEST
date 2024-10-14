@@ -731,7 +731,7 @@ class hest_lmdb(Dataset):
             transform.append(transforms.ToTensor())
         if do_normalize:
             transform.append(
-                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)))
+                transforms.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)))
         self.transform = transforms.Compose(transform)
     
     def open_lmdb(self):

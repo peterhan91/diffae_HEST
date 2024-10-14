@@ -305,7 +305,7 @@ class TrainConfig(BaseConfig):
                               **kwargs)
         elif self.data_name == 'hest':
             return hest_lmdb(lmdb_path='/hpcwork/p0021834/workspace_tianyu/tifs_dataset.lmdb',
-                             csv_path='/work/th900468/DeepLearning/diffae_HEST/hest_tifs.csv',
+                             csv_path='/work/th900468/DeepLearning/diffae_HEST/tifs_anno.csv',
                              **kwargs)
         else:
             raise NotImplementedError()

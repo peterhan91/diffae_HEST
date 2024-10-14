@@ -215,7 +215,7 @@ def hest256_autoenc():
     conf = ffhq128_autoenc_base()
     conf.data_name = 'hest'
     conf.scale_up_gpus(3)
-    conf.num_workers = 32
+    conf.num_workers = 8
     conf.img_size = 256
     conf.net_ch = 128
     conf.net_ch_mult = (1, 1, 2, 2, 4, 4)
