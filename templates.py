@@ -194,7 +194,6 @@ def padchest256_autoenc():
     conf = ffhq128_autoenc_base()
     conf.data_name = 'padchest'
     conf.scale_up_gpus(4)
-    conf.num_workers = 24
     conf.img_size = 256
     conf.net_ch = 128
     conf.net_ch_mult = (1, 1, 2, 2, 4, 4)
@@ -216,17 +215,18 @@ def hest256_autoenc():
     conf = ffhq128_autoenc_base()
     conf.data_name = 'hest'
     conf.scale_up_gpus(3)
-    conf.num_workers = 8
+    conf.num_workers = 32
     conf.img_size = 256
     conf.net_ch = 128
     conf.net_ch_mult = (1, 1, 2, 2, 4, 4)
     conf.net_enc_channel_mult = (1, 1, 2, 2, 4, 4, 4)
-    conf.eval_every_samples = 100_000_000
-    conf.eval_ema_every_samples = 100_000_000
-    conf.total_samples = 20_000_000
-    conf.batch_size = 48
+    conf.eval_every_samples = 10_000_000
+    conf.eval_ema_every_samples = 10_000_000
+    conf.total_samples = 200_000_000
+    conf.batch_size = 108
     conf.make_model_conf()
     conf.name = 'hest256_autoenc'
+    conf.base_dir = '/hpcwork/p0021834/workspace_tianyu/model_checkpoints/diffae/hest256_UNI_freeze/'
     return conf
 
 

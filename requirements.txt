@@ -1,0 +1,12 @@
+pytorch-lightning==1.4.5
+torchmetrics==0.7.0
+torchvision
+scipy
+numpy
+tqdm
+pytorch-fid==0.2.0
+pandas
+lpips==0.1.4
+lmdb
+ftfy
+regex

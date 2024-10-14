@@ -19,6 +19,9 @@ from lmdb_writer import *
 from metrics import *
 from renderer import *
 
+from huggingface_hub import login
+login(token = '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')
+
 
 class LitModel(pl.LightningModule):
     def __init__(self, conf: TrainConfig):
@@ -423,7 +426,7 @@ class LitModel(pl.LightningModule):
             else:
                 imgs = batch['img']
             self.log_sample(x_start=imgs)
-            self.evaluate_scores()
+            # self.evaluate_scores()
 
     def on_before_optimizer_step(self, optimizer: Optimizer,
                                  optimizer_idx: int) -> None:

@@ -304,8 +304,8 @@ class TrainConfig(BaseConfig):
                               crop_d2c=True,
                               **kwargs)
         elif self.data_name == 'hest':
-            return hest_lmdb(lmdb_path='/home/than/DeepLearning/HEST/tifs_dataset.lmdb',
-                             csv_path='/home/than/Datasets/HEST_data/hest_tifs.csv',
+            return hest_lmdb(lmdb_path='/hpcwork/p0021834/workspace_tianyu/tifs_dataset.lmdb',
+                             csv_path='/work/th900468/DeepLearning/diffae_HEST/hest_tifs.csv',
                              **kwargs)
         else:
             raise NotImplementedError()
